@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/custom.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <div class="swiper mySwiperVert swiper-v">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <!-- <img data-src="" class="swiper-lazy"> -->
+                Vertical Slide 1
+            </div>
+            <div class="swiper-slide">
+                <div class="swiper mySwiperHori swiper-h">
+                    <div class="swiper-wrapper">
+                    </div>
+                    <div class="tap-to-next"></div>
+                    <div class="tap-to-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+            <div class="swiper-slide">Vertical Slide 2</div>
+            <div class="swiper-slide">Vertical Slide 3</div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiperHori", {
+            virtual: {
+                addSlidesAfter: 5,
+                addSlidesBefore: 5,
+                slides: ['comet-1', 'comet-2', 'comet-3', 'comet-4', 'comet-5', 'comet-6'],
+                renderSlide: function (slide, index) {
+                    return '<div class="swiper-slide">' + '<img data-src="' + './testimg/' + slide +
+                        '.png' + '" class="swiper-lazy">' + '</div>';
+                }
+            },
+            spaceBetween: 0,
+            simulateTouch: true,
+            hashNavigation: {
+                watchState: true,
+            },
+            updateOnWindowResize: true,
+            lazy: {
+                loadPrevNext: true,
+                loadPrevNextAmount: 5,
+            },
+            keyboard: {
+                enabled: true,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                type: "progressbar",
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            navigation: {
+                nextEl: ".tap-to-next",
+                prevEl: ".tap-to-prev",
+            },
+            mousewheel: {
+                forceToAxis: true,
+            },
+        });
+        var swiper2 = new Swiper(".mySwiperVert", {
+            direction: "vertical",
+            spaceBetween: 0,
+            simulateTouch: true,
+            updateOnWindowResize: true,
+            hashNavigation: {
+                watchState: true,
+            },
+            lazy: {
+                loadPrevNext: true,
+                loadPrevNextAmount: 4,
+            },
+            keyboard: {
+                enabled: true,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                dynamicBullets: true,
+            },
+            mousewheel: {
+                forceToAxis: true,
+            },
+        });
+    </script>
+</body>
+
+</html>
