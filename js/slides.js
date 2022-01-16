@@ -11,13 +11,13 @@ var cometSlides = [
   },
   {
     id: "comet-3",
-    type: "video",
-    src: "/img/comet-3.mp4",
+    type: "image",
+    src: "/img/comet-3.png",
   },
   {
     id: "comet-4",
-    type: "image",
-    src: "/img/comet-4.png",
+    type: "video",
+    src: "/img/comet-4.mp4",
   },
   {
     id: "comet-5",
