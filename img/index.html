@@ -1,0 +1,65 @@
+<html>
+<head>
+	<title>Banner</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="no-js">
+	
+	<div id="grid" class="grid">
+		<div class="col">
+			<div class="wrapper" style="width: 1080px; height: 1920px; background-color: #ffffff;"><h6 class="heading" style="width: 1080px;">1080x1920</h6>
+				<video
+					autoplay loop muted playsinline
+					width="1080"
+					height="1920"
+					src="videos/1080x1920_comet-3.mp4"></video></div>
+		</div>
+	</div>
+	<style>
+		body {
+			background-color: #E5E5E5;
+			font-family: 'Helvetica', 'Arial', sans-serif;
+			margin: 0;
+		}
+		.heading {
+			font-size: 10px;
+			font-weight: normal;
+			color: #666;
+			margin: 10px 0;
+			position: absolute;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			top: -25px;
+			text-align: left;
+		}
+		
+		.wrapper {
+			position: relative;
+		}
+		
+		.grid {
+			position: relative;
+			z-index: 1;
+			margin: 60px 40px;
+			text-align: center;
+		}
+		
+		.col {
+			display: inline-block;
+			vertical-align: middle;
+			margin: 24px 10px;
+		}
+		
+		.no-js .replay-button {
+			display: none;
+		}
+		
+		
+	</style>
+	
+	<script type="text/javascript">
+		document.body.className = "js";
+	</script>
+</body>
+</html>

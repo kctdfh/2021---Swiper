@@ -5,20 +5,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/custom.css">
+    <title>Swoosh</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/custom.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <script src="./js/ejs.min.js"></script>
+    <script src="./js/slides.js"></script>
 </head>
 
 <body>
-    <div class="swiper mySwiperVert swiper-v">
+    <div class="swiper sections-swiper swiper-v">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <!-- <img data-src="" class="swiper-lazy"> -->
-                Vertical Slide 1 Test
+            <div class="swiper-slide" data-section-type="static" data-section-name="introduction">
+                <div class="intro-slide-wrapper">
+                    <div class="intro-slide-mobile">
+                        <div class="intro-slide-text">
+                            <h1>How-to Navigate this project</h1>
+                            <ul>
+                                <li>Swipe up and down to navigate between sections</li>
+                                <li>Swipe left and right to navigate between slides</li>
+                            </ul>
+                            <p>You can also tap the edge of your screen to navigate between slides</p>
+                        </div>
+                        <div class="intro-slide-photos">
+                        </div>
+                    </div>
+                    <div class="intro-slide-desktop">
+                        <div class="intro-slide-text">
+                            <h1>How-to Navigate this project</h1>
+                            <ul>
+                                <li>Swipe up and down to navigate between sections</li>
+                                <li>Swipe left and right to navigate between slides</li>
+                                <li>Use your horizontal and vertical scroll-wheel</li>
+                                <li>Use your keyboard's arrow keys</li>
+                                <li>Use the arrow keys on the bottom of horizontal slides</li>
+                            </ul>
+                        </div>
+                        <div class="intro-slide-photos">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="swiper-slide">
-                <div class="swiper mySwiperHori swiper-h">
+            <div class="swiper-slide" data-section-type="swiper" data-section-name="research">
+                <div class="swiper research-swiper swiper-h">
                     <div class="swiper-wrapper">
                     </div>
                     <div class="tap-to-next"></div>
@@ -26,21 +55,62 @@
                     <div class="swiper-pagination"></div>
                 </div>
             </div>
-            <div class="swiper-slide">Vertical Slide 2</div>
-            <div class="swiper-slide">Vertical Slide 3</div>
+            <div class="swiper-slide">Vertical 1</div>
+            <div class="swiper-slide">Vertical 2</div>
         </div>
         <div class="swiper-pagination"></div>
     </div>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script>
-        var swiper = new Swiper(".mySwiperHori", {
+        var contentTable;
+        var contentTableData = [];
+        document.querySelectorAll('.sections-swiper > .swiper-wrapper > .swiper-slide').forEach(function (section,
+            index) {
+            var sectionName = section.getAttribute('data-section-name');
+            var sectionType = section.getAttribute('data-section-type');
+            contentTableData.push({
+                sectionName: sectionName,
+                sectionIndex: index,
+            });
+            if (sectionType === "static") {
+                contentTableData[index].sectionSwiper = null;
+                contentTableData[index].totalSlides = 1;
+            } else if (sectionType === "swiper") {
+                contentTableData[index].sectionSwiper = sectionName + "Swiper";
+            }
+        });
+        console.log(contentTableData);
+    </script>
+    <script>
+        var researchSwiper = new Swiper(".research-swiper", {
             virtual: {
                 addSlidesAfter: 5,
                 addSlidesBefore: 5,
-                slides: ['comet-1', 'comet-2', 'comet-3', 'comet-4', 'comet-5', 'comet-6'],
+                slides: cometSlides,
                 renderSlide: function (slide, index) {
-                    return '<div class="swiper-slide">' + '<img data-src="' + '/img/' + slide +
-                        '.png' + '" class="swiper-lazy">' + '</div>';
+                    var html = ejs.render('<div class="swiper-slide" dynamic-slid-type="<%= slide.type %>">\
+                                                <div class="swiper-slide-layout-wrapper">\
+                                                <% if (slide.type === undefined || slide.type === "image") { %>\
+                                                    <img data-src="<%= slide.src %>" class="swiper-lazy">\
+                                                <% } else if (slide.type === "video") { %>\
+                                                    <video loop playsinline autoplay muted disablepictureinpicture disableremoteplayback data-src="<%= slide.src %>" class="swiper-lazy">\
+                                                    </video>\
+                                                <% } %>\
+                                                <div class="desktop-only-nav">\
+                                                    <div class="tap-to-prev">\
+                                                        <div class="swiper-button-prev"></div>\
+                                                    </div>\
+                                                    <div class="tap-to-next">\
+                                                        <div class="swiper-button-next"></div>\
+                                                    </div>\
+                                                </div>\
+                                                <% if (slide.link !== undefined) { %>\
+                                                    <a class="slide-link-a" href="<%= slide.link %>"><%= slide.linkText %></a>\
+                                                <% } %>\
+                                            </div>', {
+                        slide: slide
+                    });
+                    return html;
                 }
             },
             spaceBetween: 0,
@@ -72,7 +142,7 @@
                 forceToAxis: true,
             },
         });
-        var swiper2 = new Swiper(".mySwiperVert", {
+        var pageSwiper = new Swiper(".sections-swiper", {
             direction: "vertical",
             spaceBetween: 0,
             simulateTouch: true,
@@ -96,6 +166,7 @@
             },
         });
     </script>
+    
 </body>
 
 </html>

@@ -1,37 +1,3 @@
-      html,
-      body {
-          position: relative;
-          height: 100%;
-      }
-
-      body {
-          background: #eee;
-          font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-          font-size: 14px;
-          color: #000;
-          margin: 0;
-          padding: 0;
-      }
-
-      @media screen and (min-width: 767px) {
-          .swiper {
-                        height: 100%;
-                        margin-right: auto;
-                        margin-left: auto;
-          }
-      }
-
-      @media screen and (max-width: 766px) {
-          .swiper {
-                        width: 100%;
-                        height: 100%;
-          }
-      }
-
-      .mySwiperHori .swiper-wrapper {
-          width: 100% !important;
-      }
-
       .tap-to-next {
               position: absolute;
               top: 0;
@@ -40,6 +6,8 @@
               z-index: 10;
               cursor: pointer;
               right: 0;
+              transition-duration: 300ms;
+              transition-property: opacity;
       }
 
       .tap-to-prev {
@@ -50,53 +18,49 @@
           z-index: 10;
           cursor: pointer;
           left: 0;
+          transition-duration: 300ms;
+          transition-property: opacity;
       }
 
-      .swiper-slide {
-          text-align: center;
-          font-size: 18px;
-          background: #fff;
-
-          /* Center slide text vertically */
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: -webkit-flex;
+      .swiper-horizontal .desktop-only-nav {
+          position: absolute;
           display: flex;
-          -webkit-box-pack: center;
-          -ms-flex-pack: center;
-          -webkit-justify-content: center;
-          justify-content: center;
-          -webkit-box-align: center;
-          -ms-flex-align: center;
-          -webkit-align-items: center;
-          align-items: center;
-      }
-
-      .swiper-slide img {
-          display: block;
+          flex-direction: row;
+          justify-content: space-between;
           width: 100%;
-          height: 100%;
-          object-fit: contain;
+          bottom: 0;
       }
 
-      @media screen and (min-width: 767px) {
-          .swiper-slide img {
-              display: block;
-              width: auto;
-              height: 100%;
-              object-fit: contain;
-          }
-      }
+       .swiper-horizontal .desktop-only-nav .tap-to-next {
+           display: flex;
+           align-content: center;
+           position: relative;
+           bottom: 0;
+           width: calc(var(--swiper-navigation-size) * 2);
+           height: calc(var(--swiper-navigation-size) * 3);
+           z-index: 10;
+           cursor: pointer;
+           right: calc(var(--swiper-navigation-size) * -2);
+       }
 
-      @media screen and (max-width: 766px) {
-          .swiper-slide img {
-              display: block;
-              width: 100%;
-              height: auto;
-              overflow:hidden;
-          }
-      }
+       .swiper-horizontal .desktop-only-nav .tap-to-next.swiper-button-disabled,
+       .swiper-horizontal .desktop-only-nav .tap-to-prev.swiper-button-disabled
+        {
+           opacity: 0.25;
+       }
 
-      .swiper-v {
-          background: #eee;
-      }
+       .swiper-horizontal .desktop-only-nav .tap-to-prev {
+           display: flex;
+           align-content: center;
+           position: relative;
+           bottom: 0;
+           width: calc(var(--swiper-navigation-size) * 2);
+           height: calc(var(--swiper-navigation-size) * 3);
+           z-index: 10;
+           cursor: pointer;
+           left: calc(var(--swiper-navigation-size) * -2);
+       }
+
+       .intro-slide-wrapper {
+           padding: 10%;
+       }
