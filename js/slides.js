@@ -23,7 +23,7 @@ var cometSlides = [
     id: "comet-4",
     type: "video",
     srcS: "/img/comet-4.mp4",
-    srcL: "/img/comet-4_L.mp4",
+    srcL: "/img/comet-4_L.webm",
   },
   {
     id: "comet-5",

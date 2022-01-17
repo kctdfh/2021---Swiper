@@ -44,6 +44,7 @@ RadialMenu.prototype.open = function () {
         RadialMenu.nextTick(function () {
             self.currentMenu.setAttribute('class', 'menu');
         });
+        document.querySelector(".menu-wrapper").classList.toggle("active");
     }
 };
 
@@ -62,6 +63,7 @@ RadialMenu.prototype.close = function () {
             self.currentMenu.remove();
             self.currentMenu = null;
         });
+        document.querySelector(".menu-wrapper").classList.toggle("active");
     }
 };
 

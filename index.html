@@ -10,13 +10,80 @@
     <link rel="stylesheet" href="./css/custom.css">
     <link rel="stylesheet" href="./css/layout.css">
     <link rel="stylesheet" href="./css/radial.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/screenfull.js/5.1.0/screenfull.min.js"
+        integrity="sha512-SGPHIoS+NsP1NUL5RohNpDs44JlF36tXLN6H3Cw+EUyenEc5zPXWqfw9D+xmvR00QYUYewQIJQ6P5yH82Vw6Fg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/radial.js"></script>
     <script src="./js/ejs.min.js"></script>
     <script src="./js/slides.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/screenfull.js/5.1.0/screenfull.min.js" integrity="sha512-SGPHIoS+NsP1NUL5RohNpDs44JlF36tXLN6H3Cw+EUyenEc5zPXWqfw9D+xmvR00QYUYewQIJQ6P5yH82Vw6Fg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="./js/radial.js"></script>
 </head>
 
 <body>
+    <div class="play-pause-state">
+        <div class="video-state video-play">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-play">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg></div>
+        <div class="video-state video-pause">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-pause">
+                <rect x="6" y="4" width="4" height="16"></rect>
+                <rect x="14" y="4" width="4" height="16"></rect>
+            </svg></div>
+    </div>
+    <div class="context-menu">
+        <!-- an svg symbol element for home  -->
+        <svg id="home" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-home">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <!-- an svg symbol element for fullscreen  -->
+        <svg id="full" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-maximize">
+            <path d="M8 2H20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H8zm0 2v12h12V4z"></path>
+            <path d="M4 8h8v12H4z"></path>
+        </svg>
+        <!-- an svg symbol for rewind -->
+        <svg id="first" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-backward">
+            <polyline points="11 19 2 12 11 5"></polyline>
+            <polyline points="22 19 13 12 22 5"></polyline>
+        </svg>
+        <!-- an svg symbol for scroll-up -->
+        <svg id="top" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-arrow-up">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+        <!-- an svg symbol for nav -->
+        <svg id="nav" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-navigation">
+            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+        </svg>
+        <!-- an svg symbol for projects -->
+        <svg id="projects" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-folder">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <!-- an svg symbol for home -->
+        <svg id="home" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-home">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+    </div>
+    <div class="menu-wrapper"></div>
     <div class="swiper sections-swiper swiper-v">
         <div class="swiper-wrapper">
             <div class="swiper-slide" data-section-type="static" data-section-name="introduction">
@@ -30,7 +97,13 @@
                             </ul>
                             <p>You can also tap the edge of your screen to navigate between slides</p>
                             <button class="fullscreen-button">
-                                <svg  class="maximize" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                                <svg class="maximize" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize">
+                                    <path
+                                        d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
+                                    </path>
+                                </svg>
                                 <span>Toggle full-screen</span>
                             </button>
                         </div>
@@ -73,7 +146,7 @@
         var researchSwiper = new Swiper(".research-swiper", sectionsConfig);
         var pageSwiper = new Swiper(".sections-swiper", pageConfig);
     </script>
-    <script src="./js/page.js"></script>
+        <script src="./js/page.js"></script>
 </body>
 
 </html>

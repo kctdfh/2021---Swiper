@@ -1,16 +1,30 @@
+var returnVP = function() {
+    viewportWidth = window.innerWidth;
+    if (viewportWidth < 768) {
+        return "s";
+    } else {
+        return "l";
+    }
+}
+
+var slideChangeTime;
+
 /* ANCHOR Slide renderer */
 
 function renderHTML(slide, index) {
     var html = ejs.render(
       '<div class="swiper-slide" dynamic-slid-type="<%= slide.type %>">\
                                                 <div class="swiper-slide-layout-wrapper">\
-                                                <% if (slide.type === undefined || slide.type === "image") { %>\
+                                                <% if ((slide.type === undefined || slide.type === "image")&& returnVP() === "s") { %>\
                                                     <img data-image-size="small" data-src="<%= slide.srcS %>" class="swiper-lazy">\
-                                                    <img data-image-size="large" data-src="<%= slide.srcL %>" class="swiper-lazy">\
-                                                <% } else if (slide.type === "video") { %>\
-                                                    <video data-image-size="small" loop playsinline autoplay muted disablepictureinpicture disableremoteplayback data-src="<%= slide.srcS %>" class="swiper-lazy">\
+                                                <% } else if (slide.type === "video" && returnVP() === "s") { %>\
+                                                    <video onclick="toggleVideo()" data-image-size="small" loop playsinline autoplay muted disablepictureinpicture disableremoteplayback data-src="<%= slide.srcS %>" class="swiper-lazy">\
                                                     </video>\
-                                                    <video data-image-size="large" loop playsinline autoplay muted disablepictureinpicture disableremoteplayback data-src="<%= slide.srcL %>" class="swiper-lazy">\
+                                                <% } %>\
+                                                <% if ((slide.type === undefined || slide.type === "image")&& returnVP() === "l") { %>\
+                                                    <img data-image-size="large" data-src="<%= slide.srcL %>" class="swiper-lazy">\
+                                                <% } else if (slide.type === "video" && returnVP() === "l") { %>\
+                                                    <video onclick="toggleVideo()" data-image-size="large" loop playsinline autoplay muted disablepictureinpicture disableremoteplayback data-src="<%= slide.srcL %>" class="swiper-lazy">\
                                                     </video>\
                                                 <% } %>\
                                                 <div class="desktop-only-nav">\
@@ -27,6 +41,7 @@ function renderHTML(slide, index) {
                                             </div>',
       {
         slide: slide,
+        vp: returnVP(),
       }
     );
     return html;
@@ -68,7 +83,28 @@ var sectionsConfig = {
   mousewheel: {
     forceToAxis: true,
   },
-};
+  on: {
+    slideChange: function () {
+      slideChangeTime = new Date().getTime();
+      var currentSlide = this.realIndex;
+      var slideType = this.virtual.slides[currentSlide].type;
+      if (slideType === "video") {
+        this.slides[currentSlide].querySelector("video").pause();
+        this.slides[currentSlide].querySelector("video").currentTime = 0;
+        this.slides[currentSlide].querySelector("video").play();
+      }
+    },
+  }
+  /* on: {
+      resize: function (swiper) {
+        var newParams = swiper.params;
+        var currentSlide = swiper.activeIndex;
+        newParams.initialSlide = currentSlide;
+        swiper.virtual.removeAllSlides();
+        newSwiper = new Swiper(swiper.$el, newParams);
+        newSwiper.slideTo(currentSlide, 0, false);
+    } */
+  };
 
 /* ANCHOR Swiper config - page */
 
@@ -91,4 +127,9 @@ var pageConfig = {
   mousewheel: {
     forceToAxis: true,
   },
+  on: {
+    slideChange: function () {
+      slideChangeTime = new Date().getTime();
+    },
+  }
 };
