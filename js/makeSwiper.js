@@ -12,8 +12,8 @@ var slideChangeTime;
 /* ANCHOR Slide renderer */
 
 function renderHTML(slide, index) {
-    var html = ejs.render(
-      '<div class="swiper-slide" dynamic-slid-type="<%= slide.type %>">\
+  var html = ejs.render(
+    '<div class="swiper-slide" dynamic-slid-type="<%= slide.type %>">\
                                                 <div class="swiper-slide-layout-wrapper">\
                                                 <% if ((slide.type === undefined || slide.type === "image")&& returnVP() === "s") { %>\
                                                     <img data-image-size="small" data-src="<%= slide.srcS %>" class="swiper-lazy">\
@@ -39,12 +39,12 @@ function renderHTML(slide, index) {
                                                     <a class="slide-link-a" href="<%= slide.link %>"><%= slide.linkText %></a>\
                                                 <% } %>\
                                             </div>',
-      {
-        slide: slide,
-        vp: returnVP(),
-      }
-    );
-    return html;
+    {
+      slide: slide,
+      vp: returnVP(),
+    }
+  );
+  return html;
 }
 
 /* ANCHOR Swiper config - sections */
