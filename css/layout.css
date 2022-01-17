@@ -128,11 +128,19 @@ body {
          display: none !important;
      }
 
-     .swiper-pagination-progressbar {
-         height: 8px;
-     }
-
      .intro-slide-desktop {
          display: none;
      }
  }
+
+ .swiper-pagination-progressbar {
+     height: 8px !important;
+ }
+
+/*  .swiper-horizontal>.swiper-pagination-progressbar,
+ .swiper-pagination-progressbar.swiper-pagination-horizontal,
+ .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite,
+ .swiper-vertical>.swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {
+     bottom: 0;
+     top: unset;
+ } */

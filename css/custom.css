@@ -46,7 +46,7 @@
        .swiper-horizontal .desktop-only-nav .tap-to-next.swiper-button-disabled,
        .swiper-horizontal .desktop-only-nav .tap-to-prev.swiper-button-disabled
         {
-           opacity: 0.25;
+           opacity: 0.1;
        }
 
        .swiper-horizontal .desktop-only-nav .tap-to-prev {

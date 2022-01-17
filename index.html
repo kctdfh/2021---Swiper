@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./css/custom.css">
     <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/radial.css">
     <script src="./js/ejs.min.js"></script>
     <script src="./js/slides.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/screenfull.js/5.1.0/screenfull.min.js" integrity="sha512-SGPHIoS+NsP1NUL5RohNpDs44JlF36tXLN6H3Cw+EUyenEc5zPXWqfw9D+xmvR00QYUYewQIJQ6P5yH82Vw6Fg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/radial.js"></script>
 </head>
 
 <body>
@@ -66,132 +68,12 @@
         <div class="swiper-pagination"></div>
     </div>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="./js/makeSwiper.js"></script>
     <script>
-        var contentTable;
-        var contentTableData = [];
-        document.querySelectorAll('.sections-swiper > .swiper-wrapper > .swiper-slide').forEach(function (section,
-            index) {
-            var sectionName = section.getAttribute('data-section-name');
-            var sectionType = section.getAttribute('data-section-type');
-            contentTableData.push({
-                sectionName: sectionName,
-                sectionIndex: index,
-            });
-            if (sectionType === "static") {
-                contentTableData[index].sectionSwiper = null;
-                contentTableData[index].totalSlides = 1;
-            } else if (sectionType === "swiper") {
-                contentTableData[index].sectionSwiper = sectionName + "Swiper";
-            }
-        });
-        console.log(contentTableData);
+        var researchSwiper = new Swiper(".research-swiper", sectionsConfig);
+        var pageSwiper = new Swiper(".sections-swiper", pageConfig);
     </script>
-    <script>
-        var researchSwiper = new Swiper(".research-swiper", {
-            virtual: {
-                addSlidesAfter: 5,
-                addSlidesBefore: 5,
-                slides: cometSlides,
-                renderSlide: function (slide, index) {
-                    var html = ejs.render('<div class="swiper-slide" dynamic-slid-type="<%= slide.type %>">\
-                                                <div class="swiper-slide-layout-wrapper">\
-                                                <% if (slide.type === undefined || slide.type === "image") { %>\
-                                                    <img data-src="<%= slide.src %>" class="swiper-lazy">\
-                                                <% } else if (slide.type === "video") { %>\
-                                                    <video loop playsinline autoplay muted disablepictureinpicture disableremoteplayback data-src="<%= slide.src %>" class="swiper-lazy">\
-                                                    </video>\
-                                                <% } %>\
-                                                <div class="desktop-only-nav">\
-                                                    <div class="tap-to-prev">\
-                                                        <div class="swiper-button-prev"></div>\
-                                                    </div>\
-                                                    <div class="tap-to-next">\
-                                                        <div class="swiper-button-next"></div>\
-                                                    </div>\
-                                                </div>\
-                                                <% if (slide.link !== undefined) { %>\
-                                                    <a class="slide-link-a" href="<%= slide.link %>"><%= slide.linkText %></a>\
-                                                <% } %>\
-                                            </div>', {
-                        slide: slide
-                    });
-                    return html;
-                }
-            },
-            spaceBetween: 0,
-            simulateTouch: true,
-            hashNavigation: {
-                watchState: true,
-            },
-            updateOnWindowResize: true,
-            lazy: {
-                loadPrevNext: true,
-                loadPrevNextAmount: 5,
-            },
-            keyboard: {
-                enabled: true,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                type: "progressbar",
-            },
-            effect: 'fade',
-            fadeEffect: {
-                crossFade: true
-            },
-            navigation: {
-                nextEl: ".tap-to-next",
-                prevEl: ".tap-to-prev",
-            },
-            mousewheel: {
-                forceToAxis: true,
-            },
-        });
-        var pageSwiper = new Swiper(".sections-swiper", {
-            direction: "vertical",
-            spaceBetween: 0,
-            simulateTouch: true,
-            updateOnWindowResize: true,
-            hashNavigation: {
-                watchState: true,
-            },
-            lazy: {
-                loadPrevNext: true,
-                loadPrevNextAmount: 4,
-            },
-            keyboard: {
-                enabled: true,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                dynamicBullets: true,
-            },
-            mousewheel: {
-                forceToAxis: true,
-            },
-        });
-    </script>
-    <script>
-
-        if (!screenfull.isEnabled) {
-            document.querySelectorAll('.fullscreen-button').forEach(function (button) {
-                button.style.display = "none";
-            });
-        }
-
-        document.querySelectorAll('.fullscreen-button').forEach(function (button) {
-
-            button.addEventListener('click', function () {
-                if (screenfull.isEnabled && screenfull.isFullscreen) {
-                    screenfull.exit();
-                } else if (screenfull.isEnabled) {
-                    screenfull.request();
-                }
-            });
-        });
-
-    </script>
-    
+    <script src="./js/page.js"></script>
 </body>
 
 </html>
