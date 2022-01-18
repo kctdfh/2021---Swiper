@@ -55,7 +55,7 @@ var sectionsConfig = {
     addSlidesBefore: 5,
     slides: cometSlides,
     renderSlide: function (slide, index) {
-        return renderHTML(slide, index);
+      return renderHTML(slide, index);
     },
   },
   spaceBetween: 0,
@@ -94,17 +94,12 @@ var sectionsConfig = {
         this.slides[currentSlide].querySelector("video").play();
       }
     },
-  }
-  /* on: {
-      resize: function (swiper) {
-        var newParams = swiper.params;
-        var currentSlide = swiper.activeIndex;
-        newParams.initialSlide = currentSlide;
-        swiper.virtual.removeAllSlides();
-        newSwiper = new Swiper(swiper.$el, newParams);
-        newSwiper.slideTo(currentSlide, 0, false);
-    } */
-  };
+    resize: function (swiper) {
+      swiper.virtual.cache = {};
+      swiper.virtual.update(true);
+    },
+  },
+};
 
 /* ANCHOR Swiper config - page */
 

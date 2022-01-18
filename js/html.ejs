@@ -1,0 +1,43 @@
+<div class="swiper-slide slide-containment" dynamic-slid-type="<%= slide.type %>">
+    
+            <% if ((slide.type === undefined || slide.type === "image") && returnVP() === "s") { %>
+            <div data-image-size="small" class="img-small"
+                style="background-image: url(<%= slide.asset.small.source %>); background-position:<%= slide.asset.small.position %>; background-size:<%= slide.asset.small.size %>">
+            </div>
+            <% } else if (slide.type === "video" && returnVP() === "s") { %>
+            <video onclick="toggleVideo()" data-video-size="small" loop playsinline autoplay muted
+                disablepictureinpicture disableremoteplayback data-src="<%= slide.asset.small.source %>"
+                class="swiper-lazy video">
+            </video>
+            <% } %>
+            <% if ((slide.type === undefined || slide.type === "image") && returnVP() === "l") { %>
+            <div data-image-size="large" class="img-large"
+                style="background-image: url(<%= slide.asset.large.source %>); background-position:<%= slide.asset.large.position %>; background-size:<%= slide.asset.large.size %>">
+            </div>
+            <% } else if (slide.type === "video" && returnVP() === "l") { %>
+            <video onclick="toggleVideo()" data-video-size="large" loop playsinline autoplay muted
+                disablepictureinpicture disableremoteplayback data-src="<%= slide.asset.large.source %>"
+                class="swiper-lazy video">
+            </video>
+            <% } %>
+            <% if (slide.card.text !== undefined) { %>
+            <div class="card <%= slide.card.position %>">
+                <% if (slide.card.subtitle !== undefined) { %>
+                <h2 class="subtitle"><%= slide.card.subtitle %></h2>
+                <% } %>
+                <% if (slide.card.title !== undefined) { %>
+                <h3 class="title"><%= slide.card.title %></h3>
+                <% } %>
+                <p class="text"><%= slide.card.text %></p>
+            </div>
+            <% } %>
+        <div class="desktop-only-nav">
+            <div class="tap-to-prev">
+                <div class="swiper-button-prev"></div>
+            </div>
+            <div class="tap-to-next">
+                <div class="swiper-button-next"></div>
+            </div>
+        
+    </div>
+</div>

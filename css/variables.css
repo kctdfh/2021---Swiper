@@ -1,0 +1,29 @@
+@custom-media --tablet (min-width: 767px) and (max-width: 1023px);
+@custom-media --desktop (min-width: 1024px);
+@custom-media --tablet-desktop (min-width: 767px);
+@custom-media --mobile (max-width: 766px);
+@custom-media --ultra (min-aspect-ratio: 16/9);
+
+:root {
+    --background: wheat;
+    /*  */
+    --spacing-lg-desktop: 5vh;
+    --spacing-md-desktop: 3vh;
+    --spacing-sm-desktop: 2vh;
+    --spacing-xs-desktop: 1vh;
+    /*  */
+    --spacing-lg-mobile: 8vw;
+    --spacing-md-mobile: 4vw;
+    --spacing-sm-mobile: 2vw;
+    --spacing-xs-mobile: 0.5vw;
+    /*  */
+    --text-lg-desktop: 6vh;
+    --text-md-desktop: 2vh;
+    --text-sm-desktop: 1.5vh;
+    --text-xs-desktop: 1vh;
+    /*  */
+    --text-lg-mobile: 12vw;
+    --text-md-mobile: 4vw;
+    --text-sm-mobile: 3vw;
+    --text-xs-mobile: 1vw;
+}

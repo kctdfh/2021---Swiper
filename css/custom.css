@@ -81,16 +81,6 @@
            margin-left: auto;
        }
 
-       /* .swiper-horizontal .desktop-only-nav .swiper-button-next::after {
-            margin-right: calc(var(--swiper-navigation-size) / 2);
-            margin-left: calc(var(--swiper-navigation-size) / 2);
-       }
-
-       .swiper-horizontal .desktop-only-nav .swiper-button-prev::after {
-           margin-left: calc(var(--swiper-navigation-size) / 2);
-           margin-right: calc(var(--swiper-navigation-size) / 2);
-       } */
-
        .swiper-horizontal .desktop-only-nav .tap-to-prev {
            display: flex;
            align-content: center;
@@ -111,19 +101,6 @@
        .intro-slide-wrapper {
            padding: 10%;
        }
-
-/*         @media screen and (min-width: 767px) {
-            .swiper-slide [data-image-size="small"] {
-                display: none;
-            }
-        }
-
-        @media screen and (max-width: 766px) {
-
-            .swiper-slide [data-image-size="large"] {
-                display: none;
-            }
-        } */
 
         .play-pause-state {
             pointer-events: none;
@@ -198,6 +175,108 @@
             justify-content: left;
         }
 
+        .cover-card {
+            z-index: 10;
+        }
+
+        .cover-card .title {
+            margin-top: 0;
+        }
+
+        @media (--mobile) {
+            .cover-card {
+                position: absolute;
+                width: 65%;
+                bottom: 0vw;
+                height: auto;
+                padding: var(--spacing-lg-mobile);
+                /* font-size: 1.5vw; */
+                background-color: #fff;
+            }
+
+            .cover-card .title {
+                font-size: var(--text-lg-mobile);
+                font-weight: bold;
+                margin-bottom: 0;
+            }
+
+            .cover-card .year {
+                font-size: var(--text-md-mobile);
+                font-weight: semi-bold;
+                background-color: black;
+                color: white;
+                padding: var(--spacing-sm-mobile);
+                border-radius: 5px;
+                max-width: max-content;
+                margin-bottom: var(--spacing-md-mobile);
+            }
+
+            .cover-card .description {
+                font-size: var(--text-md-mobile);
+                font-weight: normal;
+                max-width: max-content;
+            }
+
+            .cover-card .type {
+                font-size: var(--text-md-mobile);
+                margin-top: var(--spacing-md-mobile);
+                font-weight: normal;
+                max-width: max-content;
+                opacity: 0.7;
+            }
+        }
+
+        @media (--ultra) {
+            .cover-card {
+                width: 22% !important;
+            }
+        }
+
+        @media (--tablet-desktop) {
+            .cover-card {
+                z-index: 10;
+                width: 30%;
+                height: auto;
+                position: relative;
+                left: 0;
+                padding: var(--spacing-lg-desktop);
+                background-color: #fff;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+                font-family: 'Sora'
+            }
+
+            .cover-card .title {
+                font-size: var(--text-lg-desktop);
+                font-weight: bold;
+                margin-bottom: 0;
+            }
+
+            .cover-card .year {
+                font-size: var(--text-md-desktop);
+                font-weight: semi-bold;
+                background-color: black;
+                color: white;
+                padding: var(--spacing-xs-desktop);
+                border-radius: 5px;
+                max-width: max-content;
+                margin-bottom: var(--spacing-sm-desktop);
+            }
+
+            .cover-card .description {
+                font-size: var(--text-md-desktop);
+                font-weight: normal;
+                max-width: max-content;
+            }
+
+            .cover-card .type {
+                font-size: var(--text-md-desktop);
+                margin-top: var(--spacing-md-desktop);
+                font-weight: normal;
+                max-width: max-content;
+                opacity: 0.7;
+            }
+        }
+
         .comet-cover-img {
             position: absolute;
             top: 0;
@@ -209,147 +288,6 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-color: wheat;
+            background-color: var(--background);
             z-index: 5;
-        }
-
-        .cover-card {
-            z-index: 10;
-        }
-
-        .cover-card .title {
-            margin-top: 0;
-        }
-
-        @media screen and (min-width: 767px) {
-        
-            .cover-card {
-                z-index: 10;
-                width: 22%;
-                height: auto;
-                position: relative;
-                left: 0;
-                padding: 5vw;
-                background-color: #fff;
-                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-                font-family: 'Sora'
-            }
-
-            .cover-card .title {
-                font-size: 3vw;
-                font-weight: bold;
-                margin-bottom: 0;
-            }
-
-            .cover-card .year {
-                font-size: 1vw;
-                font-weight: semi-bold;
-                background-color: black;
-                color: white;
-                padding: 0.5vw;
-                border-radius: 5px;
-                max-width: max-content;
-                margin-bottom: 2vw;
-            }
-
-            .cover-card .description {
-                font-size: 1vw;
-                font-weight: normal;
-                max-width: max-content;
-            }
-
-            .cover-card .type {
-                font-size: 1vw;
-                font-weight: normal;
-                max-width: max-content;
-                opacity: 0.7;
-            }
-        }
-
-        /* media query for mobile */
-
-        @media screen and (max-width: 766px) {
-            .cover-card {
-                position: absolute;
-                width: 65%;
-                bottom: 0vw;
-                height: auto;
-                padding: 8vw;
-                font-size: 1.5vw;
-                background-color: #fff;
-            }
-
-            .cover-card .title {
-                font-size: 11vw;
-                font-weight: bold;
-                margin-bottom: 0;
-            }
-
-            .cover-card .year {
-                font-size: 5vw;
-                font-weight: semi-bold;
-                background-color: black;
-                color: white;
-                padding: 2vw;
-                border-radius: 5px;
-                max-width: max-content;
-                margin-bottom: 5vw;
-            }
-
-            .cover-card .description {
-                font-size: 4vw;
-                font-weight: normal;
-                max-width: max-content;
-            }
-
-            .cover-card .type {
-                font-size: 4vw;
-                font-weight: normal;
-                max-width: max-content;
-                opacity: 0.7;
-            }
-        }
-
-        /* media query for tablet */
-
-        @media screen and (min-width: 767px) and (max-width: 1023px) {
-            .cover-card {
-                position: absolute;
-                width: 50%;
-                margin-top: auto;
-                margin-bottom: auto;
-                height: auto;
-                padding: 4vw;
-                font-size: 1.5vw;
-            }
-
-            .cover-card .title {
-                font-size: 6vw;
-                font-weight: bold;
-                margin-bottom: 0;
-            }
-
-            .cover-card .year {
-                font-size: 3vw;
-                font-weight: semi-bold;
-                background-color: black;
-                color: white;
-                padding: 2vw;
-                border-radius: 5px;
-                max-width: max-content;
-                margin-bottom: 3vw;
-            }
-
-            .cover-card .description {
-                font-size: 2vw;
-                font-weight: normal;
-                max-width: max-content;
-            }
-
-            .cover-card .type {
-                font-size: 2vw;
-                font-weight: normal;
-                max-width: max-content;
-                opacity: 0.7;
-            }
         }

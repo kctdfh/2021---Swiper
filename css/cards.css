@@ -1,0 +1,105 @@
+.slide-containment {
+    /* all: inherit;
+    display: block;
+    width: inherit;
+    max-width: 100% @(--ultra) 1200px;
+    height: 100%; */
+    width: 100vw !important;
+}
+
+.slide-containment [data-image-size] {
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+}
+
+.slide-containment [data-video-size] {
+    object-fit: contain;
+}
+
+.slide-containment [data-image-size="large"] {
+    background-size: contain;
+}
+
+.slide-containment [data-image-size="small"] {
+    background-size: cover;
+}
+
+.slide-containment .card {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: top;
+    background-color: #fff;
+    z-index: 10;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Sora';
+    width: @(--ultra) 30vw @(--tablet-desktop) 33vw @(--desktop) 33vw @(--mobile) 85vw;
+    padding: @(--ultra) var(--spacing-lg-desktop) @(--tablet-desktop) var(--spacing-lg-desktop) @(--desktop) var(--spacing-lg-desktop) @(--mobile) var(--spacing-lg-mobile);
+}
+
+.slide-containment .card > * :first-child {
+    /* margin-bottom: 0px; */
+}
+
+.slide-containment .card > * {
+    /* margin-bottom: @(--ultra) var(--spacing-sm-desktop) @(--tablet-desktop) var(--spacing-sm-desktop) @(--desktop) var(--spacing-sm-desktop) @(--mobile) var(--spacing-sm-mobile); */
+    margin: unset;
+    font-size: unset;
+}
+
+.slide-containment .card .title {
+    font-size: @(--ultra) var(--text-lg-desktop) @(--tablet-desktop) var(--text-lg-desktop) @(--desktop) var(--text-lg-desktop) @(--mobile) var(--text-lg-mobile);
+    font-weight: 600;
+}
+
+.slide-containment .card .subtitle {
+    font-size: @(--ultra) var(--text-sm-desktop) @(--tablet-desktop) var(--text-sm-desktop) @(--desktop) var(--text-sm-desktop) @(--mobile) var(--text-sm-mobile);
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+.slide-containment .card .text {
+    font-size: @(--ultra) var(--text-md-desktop) @(--tablet-desktop) var(--text-md-desktop) @(--desktop) var(--text-md-desktop) @(--mobile) var(--text-md-mobile);
+    font-weight: 400;
+}
+
+/* .slide-containment .card.full {
+    width: @(--ultra) 35vw @(--tablet-desktop) 40vw @(--desktop) 40vw @(--mobile) 100vw;
+}
+
+.slide-containment .card.full.top,
+.slide-containment .card.full.bottom {
+    width: @(--ultra) 35vw @(--tablet-desktop) 40vw @(--desktop) 40vw @(--mobile) 100vw;
+    right: 0px;
+    left: 0px;
+} */
+
+.slide-containment .card.top {
+    top: @(--ultra) 10vh @(--tablet-desktop) 0px @(--desktop) 0px @(--mobile) 0px;
+}
+
+.slide-containment .card.bottom {
+    bottom: @(--ultra) calc(5vh + 65px + 5vh) @(--tablet-desktop) calc(5vh + 65px + 5vh) @(--desktop) calc(5vh + 65px + 5vh) @(--mobile) 0px;
+}
+
+.slide-containment .card.right {
+    right: @(--ultra) 10vh @(--tablet-desktop) 0px @(--desktop) 0px @(--mobile) 0px;
+}
+
+.slide-containment .card.left {
+    left: @(--ultra) 10vh @(--tablet-desktop) 0px @(--desktop) 0px @(--mobile) 0px;
+}
+
+.slide-containment .card.left.center,
+.slide-containment .card.right.center {
+    top: @(--ultra) 50vh @(--tablet-desktop) 50vh @(--desktop) 50vh @(--mobile) 50vh;
+}
+
+.slide-containment .card.center-center {
+    margin-right: auto;
+    margin-left: auto;
+    top: unset;
+    bottom: unset;
+}

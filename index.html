@@ -7,15 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Swoosh</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="./css/custom.css">
-    <link rel="stylesheet" href="./css/layout.css">
-    <link rel="stylesheet" href="./css/radial.css">
+    <link rel="stylesheet" href="./css/swoosh.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/screenfull.js/5.1.0/screenfull.min.js"
         integrity="sha512-SGPHIoS+NsP1NUL5RohNpDs44JlF36tXLN6H3Cw+EUyenEc5zPXWqfw9D+xmvR00QYUYewQIJQ6P5yH82Vw6Fg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./js/radial.js"></script>
     <script src="./js/ejs.min.js"></script>
-    <script src="./js/slides.js"></script>
+    <script src="./js/slides_.js"></script>
     <!-- Get sora font in all weights from google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Sora:400,500,600&display=swap" rel="stylesheet">
 </head>
@@ -152,10 +150,11 @@
         <div class="swiper-pagination"></div>
     </div>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    <script src="./js/makeSwiper.js"></script>
+    <script src="./js/makeSwiper_.js"></script>
     <script>
-        var researchSwiper = new Swiper(".research-swiper", sectionsConfig);
-        var pageSwiper = new Swiper(".sections-swiper", pageConfig);
+       var researchSwiper = new Swiper(".research-swiper", sectionsConfig);
+       var pageSwiper = new Swiper(".sections-swiper", pageConfig);
+         window.dispatchEvent(new Event('resize'));
     </script>
         <script src="./js/page.js"></script>
 </body>
