@@ -68,7 +68,10 @@ var sectionsConfig = {
         this.slides[currentSlide].querySelector("video").pause();
         this.slides[currentSlide].querySelector("video").currentTime = 0;
         this.slides[currentSlide].querySelector("video").play();
-      }
+      };
+      currentSlide = Number(this.realIndex) + 1;
+      totalSlides = this.virtual.slides.length;
+      document.getElementById("slide-number").innerHTML = "<span>" + currentSlide + " / " + totalSlides + "</span>";
     },
     resize: function (swiper) {
       swiper.virtual.cache = {};

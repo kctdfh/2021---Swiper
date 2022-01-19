@@ -136,7 +136,15 @@ body {
  }
 
  .swiper-pagination-progressbar {
-     height: 8px !important;
+     height: 6px !important;
+ }
+
+ .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+     background: var(--accent) !important;
+ }
+
+ .swiper-pagination-bullet-active {
+     background: var(--accent) !important;
  }
 
 .media-wrapper {
@@ -164,4 +172,15 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+#slide-number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: black;
+    font-size: 1.25rem;
+    text-align: center;
+    line-height: 100%;
+    z-index: 9999;
 }

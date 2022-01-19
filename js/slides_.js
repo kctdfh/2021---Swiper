@@ -5,19 +5,17 @@ var cometSlides = [
     asset: {
       small: {
         source: "./img/comet-10.png",
-        position: "right bottom",
-        size: "100%",
+        position: "right 10vh",
+        size: "130%",
       },
       large: {
-        source: "./img/comet-10_L.png",
-        position: "right top",
-        size: "100%",
+        source: "./img/comet-10.png",
+        position: "right bottom",
+        size: "70%",
       },
     },
     card: {
-      title: "Comet 10",
-      subtitle: "A new way to see the world",
-      text: "Comet 10 is a small comet that was discovered in 2004 by the Hubble Space Telescope. It is the tenth largest known comet in the solar system. It is the closest to the Sun than any other known comet. It is the only known comet to have a magnetic field. It is the only known comet to have a magnetic field. It is the only known comet to have a magnetic field.",
+      text: "The syncing indicator show the database state",
       position: "left top",
     },
   },
@@ -37,6 +35,8 @@ var cometSlides = [
       },
     },
     card: {
+      title: "Comet 11",
+      subtitle: "A new way to see the world",
       text: "Comet 11 is a small comet that was discovered in 2004 by the Hubble Space Telescope. It is the tenth largest known comet in the solar system. It is the closest to the Sun than any other known comet. It is the only known comet to have a magnetic field. It is the only known comet to have a magnetic field. It is the only known comet to have a magnetic field.",
       position: "right bottom",
     },
@@ -78,7 +78,7 @@ var cometSlides = [
     },
     card: {
       text: "Comet 12 is the only known comet to have a magnetic field. It is the only known comet to have a magnetic field. It is the only known comet to have a magnetic field.",
-      position: "top center",
+      position: "center top",
     },
   },
   {

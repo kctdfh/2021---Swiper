@@ -4,26 +4,53 @@
 @custom-media --mobile (max-width: 766px);
 @custom-media --ultra (min-aspect-ratio: 16/9);
 
-:root {
+/* :root {
     --background: wheat;
-    /*  */
+   
     --spacing-lg-desktop: 5vh;
     --spacing-md-desktop: 3vh;
     --spacing-sm-desktop: 2vh;
     --spacing-xs-desktop: 1vh;
-    /*  */
+  
     --spacing-lg-mobile: 8vw;
     --spacing-md-mobile: 4vw;
     --spacing-sm-mobile: 2vw;
     --spacing-xs-mobile: 0.5vw;
-    /*  */
+   
     --text-lg-desktop: 6vh;
     --text-md-desktop: 2vh;
     --text-sm-desktop: 1.5vh;
     --text-xs-desktop: 1vh;
-    /*  */
+    
     --text-lg-mobile: 12vw;
     --text-md-mobile: 4vw;
     --text-sm-mobile: 3vw;
     --text-xs-mobile: 1vw;
+} 
+*/
+
+:root {
+    --background: wheat;
+    --dark-wheat: #ebbe6a;
+    --accent: #a37a2f;
+    /*  */
+    --spacing-lg-desktop: 3rem;
+    --spacing-md-desktop: 2rem;
+    --spacing-sm-desktop: 1.15rem;
+    --spacing-xs-desktop: 1rem;
+    /*  */
+    --spacing-lg-mobile: 2.5rem;
+    --spacing-md-mobile: 2rem;
+    --spacing-sm-mobile: 1.15rem;
+    --spacing-xs-mobile: 1rem;
+    /*  */
+    --text-lg-desktop: 3rem;
+    --text-md-desktop: 2rem;
+    --text-sm-desktop: 1.15rem;
+    --text-xs-desktop: 1rem;
+    /*  */
+    --text-lg-mobile: 2.5rem;
+    --text-md-mobile: 2rem;
+    --text-sm-mobile: 1.15rem;
+    --text-xs-mobile: 1rem;
 }
