@@ -16,6 +16,8 @@
     <script src="./js/slides_.js"></script>
     <!-- Get sora font in all weights from google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Sora:400,500,600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
 </head>
 
 <body>
@@ -99,25 +101,28 @@
             <div class="swiper-slide" data-section-type="static" data-hash="how-to-navigate" data-section-name="introduction">
                 <div class="intro-slide-wrapper">
                     <div class="intro-slide-mobile">
-                        <div class="intro-slide-text">
-                            <h1>How-to Navigate this project</h1>
-                            <ul>
-                                <li>Swipe up and down to navigate between sections</li>
-                                <li>Swipe left and right to navigate between slides</li>
-                            </ul>
-                            <p>You can also tap the edge of your screen to navigate between slides</p>
-                            <button class="fullscreen-button">
-                                <svg class="maximize" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize">
-                                    <path
-                                        d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
-                                    </path>
-                                </svg>
-                                <span>Toggle full-screen</span>
-                            </button>
+                        <!-- <div class="card main-key">
+                          <p class="subtitle">How-to</p>
+                          <h1 class="title">Navigating this project</h1>
+                          <p class="text">You can tap and swipe to change slides</p>
+                        </div> -->
+                        <div class="card key swipe-key">
+                          <p class="text">Swipe up, down, right, and left to navigate</p>
+                          <div class="icon">
+                              <lottie-player src="https://s3.amazonaws.com/cdnl.iconscout.com/lottie/premium/original/2915066.json?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4VMJAKC54WWWCYMY%2F20220120%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220120T222323Z&X-Amz-SignedHeaders=host&X-Amz-Expires=259200&X-Amz-Signature=779afae2ae34d2ac2f9a0417c5dfc8863efbe5b703d6eb694e0f75e7c6f01801" background="transparent" speed="1" style="width: 125px; height: 125px;" loop autoplay></lottie-player>
+                          </div>
                         </div>
-                        <div class="intro-slide-photos">
+                        <div class="card key click-key">
+                          <p class="text">Or tap on the side edges to navigate horizontally</p>
+                          <div class="icon">
+                              <lottie-player src="https://s3.amazonaws.com/cdnl.iconscout.com/lottie/premium/original/2915059.json?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4VMJAKC54WWWCYMY%2F20220120%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220120T222329Z&X-Amz-SignedHeaders=host&X-Amz-Expires=259200&X-Amz-Signature=e1178ae592ed2041f1d29fb91df2f0e403821a8ec805e4bf6ff87a49f9d8ce01" background="transparent" speed="1" style="width: 125px; height: 125px;" loop autoplay></lottie-player>
+                          </div>
+                        </div>
+                        <div class="card key dbclick-key">
+                          <p class="text">Double tap anywhere to open the quick access menu</p>
+                          <div class="icon">
+                              <lottie-player src="https://s3.amazonaws.com/cdnl.iconscout.com/lottie/premium/original/2915064.json?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4VMJAKC54WWWCYMY%2F20220120%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220120T222333Z&X-Amz-SignedHeaders=host&X-Amz-Expires=259200&X-Amz-Signature=cc264c5b58a83879b391430385ec7061c998a60829cc0d3fcea1160c6922435f" background="transparent" speed="1" style="width: 125px; height: 125px;" loop autoplay></lottie-player>
+                          </div>
                         </div>
                     </div>
                     <div class="intro-slide-desktop">
@@ -128,7 +133,8 @@
                         </div>
                         <div class="card key click-key">
                           <p class="text">Click on the slide change arrows</p>
-                          <div class="icon"></div>
+                          <div class="icon">
+                          </div>
                         </div>
                         <div class="card key swipe-key">
                           <p class="text">Swipe up, down, left, or right with your mouse</p>
