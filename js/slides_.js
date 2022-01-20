@@ -12,6 +12,11 @@ var cometSlides = [
         source: "./img/comet-10.png",
         position: "right bottom",
         size: "70%",
+        tall: {
+          source: "./img/comet-10.png",
+          position: "center center",
+          size: "100%",
+        },
       },
     },
     card: {
@@ -32,6 +37,11 @@ var cometSlides = [
         source: "./img/comet-11_L.png",
         position: "left bottom",
         size: "100%",
+        tall: {
+          source: "./img/comet-11_L.png",
+          position: "left top",
+          size: "100%",
+        },
       },
     },
     card: {
@@ -54,6 +64,11 @@ var cometSlides = [
         source: "./img/comet-12_L.png",
         position: "left top",
         size: "100%",
+        tall: {
+          source: "./img/comet-111.png",
+          position: "left top",
+          size: "100%",
+        },
       },
     },
     card: {
@@ -74,6 +89,11 @@ var cometSlides = [
         source: "./img/comet-111.png",
         position: "left top",
         size: "100%",
+        tall: {
+          source: "./img/comet-111.png",
+          position: "left top",
+          size: "100%",
+        },
       },
     },
     card: {
@@ -94,6 +114,11 @@ var cometSlides = [
         source: "./img/comet-14_large.png",
         position: "left top",
         size: "100%",
+        tall: {
+          source: "./img/comet-111.png",
+          position: "left top",
+          size: "100%",
+        },
       },
     },
     card: {

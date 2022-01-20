@@ -57,10 +57,6 @@ body {
       .swiper-horizontal>.tap-to-prev {
           display: none;
       }
-
-      .intro-slide-mobile {
-          display: none;
-      }
   }
 
   @media (--mobile) {
@@ -75,10 +71,6 @@ body {
 
       .desktop-only-nav {
           display: none !important;
-      }
-
-      .intro-slide-desktop {
-          display: none;
       }
   }
 
@@ -118,8 +110,6 @@ body {
  .swiper-slide{
      font-size: 18px;
      background: var(--background);
-
-     /* Center slide text vertically */
      display: -webkit-box;
      display: -ms-flexbox;
      display: -webkit-flex;

@@ -1,0 +1,103 @@
+.intro-slide-mobile {
+    display: @(--mobile) grid @(--tablet-desktop) none;
+}
+
+.intro-slide-desktop {
+    display: @(--tablet-desktop) grid @(--mobile) none;
+    width: 100vw;
+    height: 100vh;
+}
+
+@media (--desktop) {
+    .intro-slide-desktop {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        gap: 0px 0px;
+        grid-auto-flow: row;
+        justify-items: stretch;
+        align-items: end !important;
+        grid-template-areas: "Main Main Main . . click-key click-key . ."
+            ". . . swipe-key swipe-key . . x-key x-key"
+            ". dbclick-key dbclick-key . . y-key y-key . ."
+            ". . . wheel-x-key wheel-x-key . . wheel-y-key wheel-y-key";
+    }
+}
+
+@media (--ipadpro) {
+    .intro-slide-desktop {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        gap: 0px 0px;
+        grid-auto-flow: row;
+        justify-items: stretch;
+        align-items: end !important;
+        grid-template-areas: "Main Main Main . . click-key click-key . ."
+            ". . . swipe-key swipe-key . . x-key x-key"
+            ". dbclick-key dbclick-key . . y-key y-key . ."
+            ". . . wheel-x-key wheel-x-key . . wheel-y-key wheel-y-key";
+    }
+
+    .intro-slide-desktop .card {
+        background-color: red;
+    }
+}
+
+.intro-slide-wrapper .key {
+    position: static !important;
+    gap: var(--spacing-md-tablet-desktop);
+    display: grid @(--ipadpro) flex @(--mobile) flex;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 25px;
+    grid-auto-flow: row;
+    justify-content: center @(--ipadpro) start @(--mobile) start;
+    align-content: center @(--ipadpro) start @(--mobile) start;
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+.intro-slide-wrapper .key .icon {
+    height: 75%;
+    width: 100%;
+    background-color: red;
+    align-self: self-end;
+    justify-self: center;
+}
+
+.intro-slide-wrapper .main-key {
+    align-self: stretch;
+    justify-self: stretch;
+    grid-area: Main;
+    position: static;
+    max-width: 100% !important;
+}
+
+.intro-slide-wrapper .click-key {
+    grid-area: click-key;
+}
+
+.intro-slide-wrapper .swipe-key {
+    grid-area: swipe-key;
+}
+
+.intro-slide-wrapper .x-key {
+    grid-area: x-key;
+}
+
+.intro-slide-wrapper .dbclick-key {
+    grid-area: dbclick-key;
+}
+
+.intro-slide-wrapper .y-key {
+    grid-area: y-key;
+}
+
+.intro-slide-wrapper .wheel-x-key {
+    grid-area: wheel-x-key;
+}
+
+.intro-slide-wrapper .wheel-y-key {
+    grid-area: wheel-y-key;
+}

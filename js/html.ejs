@@ -1,7 +1,6 @@
 <div class="swiper-slide slide-containment" dynamic-slid-type="<%= slide.type %>">
-    
             <% if ((slide.type === undefined || slide.type === "image") && returnVP() === "s") { %>
-            <div data-image-size="small" class="img-small"
+            <div data-image-size="small" class="img-small swiper-lazy"
                 style="background-image: url(<%= slide.asset.small.source %>); background-position:<%= slide.asset.small.position %>; background-size:<%= slide.asset.small.size %>">
             </div>
             <% } else if (slide.type === "video" && returnVP() === "s") { %>
@@ -10,11 +9,15 @@
                 class="swiper-lazy video">
             </video>
             <% } %>
-            <% if ((slide.type === undefined || slide.type === "image") && returnVP() === "l") { %>
-            <div data-image-size="large" class="img-large"
+            <% if ((slide.type === undefined || slide.type === "image") && returnVP() === "l-wide") { %>
+            <div data-image-size="large" class="img-large swiper-lazy"
                 style="background-image: url(<%= slide.asset.large.source %>); background-position:<%= slide.asset.large.position %>; background-size:<%= slide.asset.large.size %>">
             </div>
-            <% } else if (slide.type === "video" && returnVP() === "l") { %>
+            <% } else if ((slide.type === undefined || slide.type === "image") && returnVP() === "l-tall") { %>
+            <div data-image-size="large" class="img-large swiper-lazy"
+                style="background-image: url(<%= slide.asset.large.tall.source %>); background-position:<%= slide.asset.large.tall.position %>; background-size:<%= slide.asset.large.tall.size %>">
+            </div>
+            <% } else if (slide.type === "video" && returnVP().includes("l")) { %>
             <video onclick="toggleVideo()" data-video-size="large" loop playsinline autoplay muted
                 disablepictureinpicture disableremoteplayback data-src="<%= slide.asset.large.source %>"
                 class="swiper-lazy video">
@@ -38,6 +41,5 @@
             <div class="tap-to-next">
                 <div class="swiper-button-next"></div>
             </div>
-        
     </div>
 </div>
