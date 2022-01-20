@@ -1,4 +1,4 @@
-<div class="swiper-slide slide-containment" dynamic-slid-type="<%= slide.type %>">
+<div class="swiper-slide slide-containment" data-hash="<%= slide.id %>" dynamic-slid-type="<%= slide.type %>">
             <% if ((slide.type === undefined || slide.type === "image") && returnVP() === "s") { %>
             <div data-image-size="small" class="img-small swiper-lazy"
                 style="background-image: url(<%= slide.asset.small.source %>); background-position:<%= slide.asset.small.position %>; background-size:<%= slide.asset.small.size %>">
