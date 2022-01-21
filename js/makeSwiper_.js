@@ -18,7 +18,6 @@ var returnVP = function () {
 
 var nextSlideRight = function (icon) {
   var parentSwiper = icon.closest(".swiper");
-  console.log(parentSwiper);
   var swiper = parentSwiper.swiper;
   var currentSlide = swiper.activeIndex;
   var nextSlide = currentSlide + 1;
@@ -94,7 +93,9 @@ var sectionsConfig = {
   resizeObserver: true,
   on: {
     slideChange: function () {
+      // double click detector
       slideChangeTime = new Date().getTime();
+      // video restart on enter
       var currentSlide = this.realIndex;
       var slideType = this.virtual.slides[currentSlide].type;
       if (slideType === "video") {
@@ -104,12 +105,13 @@ var sectionsConfig = {
       };
       currentSlide = Number(this.realIndex) + 1;
       totalSlides = this.virtual.slides.length;
+      // debug counter
       document.getElementById("slide-number").innerHTML = "<span>" + currentSlide + " / " + totalSlides + "</span>";
     },
     resize: function (swiper) {
       swiper.virtual.cache = {};
       swiper.virtual.update(true);
-      swiper.slideTo(swiper.realIndex, 0);
+      swiper.slideTo(swiper.activeIndex, 0);
     },
   },
 };
