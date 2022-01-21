@@ -109,6 +109,7 @@ var sectionsConfig = {
     resize: function (swiper) {
       swiper.virtual.cache = {};
       swiper.virtual.update(true);
+      swiper.slideTo(swiper.realIndex, 0);
     },
   },
 };
