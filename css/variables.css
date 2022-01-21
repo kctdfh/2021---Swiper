@@ -55,4 +55,6 @@
     --text-md-mobile: 2rem;
     --text-sm-mobile: 1.15rem;
     --text-xs-mobile: 1rem;
+    /*  */
+    --menu-shadow: drop-shadow(3px 3px 2px var(--dark-wheat));
 }

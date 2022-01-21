@@ -64,7 +64,7 @@ var menuItems = [
     },
     {
         id: 'screen',
-        title: "Toggle Fullscreen",
+        title: "Fullscreen",
         icon: "#full",
     },
     {
