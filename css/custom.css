@@ -183,3 +183,7 @@
     background-color: var(--background);
     z-index: 5;
 }
+
+.rough-annotation {
+    z-index: -1;
+}

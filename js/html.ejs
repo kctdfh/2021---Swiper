@@ -1,45 +1,69 @@
 <div class="swiper-slide slide-containment" data-hash="<%= slide.id %>" dynamic-slid-type="<%= slide.type %>">
-            <% if ((slide.type === undefined || slide.type === "image") && returnVP() === "s") { %>
-            <div data-image-size="small" class="img-small swiper-lazy"
-                style="background-image: url(<%= slide.asset.small.source %>); background-position:<%= slide.asset.small.position %>; background-size:<%= slide.asset.small.size %>">
-            </div>
-            <% } else if (slide.type === "video" && returnVP() === "s") { %>
-            <video onclick="toggleVideo()" data-video-size="small" loop playsinline autoplay muted
-                disablepictureinpicture disableremoteplayback data-src="<%= slide.asset.small.source %>"
-                class="swiper-lazy video">
-            </video>
-            <% } %>
-            <% if ((slide.type === undefined || slide.type === "image") && returnVP() === "l-wide") { %>
-            <div data-image-size="large" class="img-large swiper-lazy"
-                style="background-image: url(<%= slide.asset.large.source %>); background-position:<%= slide.asset.large.position %>; background-size:<%= slide.asset.large.size %>">
-            </div>
-            <% } else if ((slide.type === undefined || slide.type === "image") && returnVP() === "l-tall") { %>
-            <div data-image-size="large" class="img-large swiper-lazy"
-                style="background-image: url(<%= slide.asset.large.tall.source %>); background-position:<%= slide.asset.large.tall.position %>; background-size:<%= slide.asset.large.tall.size %>">
-            </div>
-            <% } else if (slide.type === "video" && returnVP().includes("l")) { %>
-            <video onclick="toggleVideo()" data-video-size="large" loop playsinline autoplay muted
-                disablepictureinpicture disableremoteplayback data-src="<%= slide.asset.large.source %>"
-                class="swiper-lazy video">
-            </video>
-            <% } %>
-            <% if (slide.card.text !== undefined) { %>
-            <div class="card <%= slide.card.position %>">
-                <% if (slide.card.subtitle !== undefined) { %>
-                <h2 class="subtitle"><%= slide.card.subtitle %></h2>
-                <% } %>
-                <% if (slide.card.title !== undefined) { %>
-                <h3 class="title"><%= slide.card.title %></h3>
-                <% } %>
-                <p class="text"><%= slide.card.text %></p>
-            </div>
-            <% } %>
-        <div class="desktop-only-nav">
-            <div class="tap-to-prev">
-                <div class="swiper-button-prev"></div>
-            </div>
-            <div class="tap-to-next">
-                <div class="swiper-button-next"></div>
-            </div>
+    <% if ((slide.type === undefined || slide.type === "image") && returnVP() === "s") { %>
+    <div data-image-size="small" class="img-small swiper-lazy"
+        style="background-image: url(<%= slide.asset.small.source %>); background-position:<%= slide.asset.small.position %>; background-size:<%= slide.asset.small.size %>">
+    </div>
+    <% } else if (slide.type === "video" && returnVP() === "s") { %>
+    <video onclick="toggleVideo()" data-video-size="small" loop playsinline autoplay muted disablepictureinpicture
+        disableremoteplayback data-src="<%= slide.asset.small.source %>" class="swiper-lazy video">
+    </video>
+    <% } %>
+    <% if ((slide.type === undefined || slide.type === "image") && returnVP() === "l-wide") { %>
+    <div data-image-size="large" class="img-large swiper-lazy"
+        style="background-image: url(<%= slide.asset.large.source %>); background-position:<%= slide.asset.large.position %>; background-size:<%= slide.asset.large.size %>">
+    </div>
+    <% } else if ((slide.type === undefined || slide.type === "image") && returnVP() === "l-tall") { %>
+    <div data-image-size="large" class="img-large swiper-lazy"
+        style="background-image: url(<%= slide.asset.large.tall.source %>); background-position:<%= slide.asset.large.tall.position %>; background-size:<%= slide.asset.large.tall.size %>">
+    </div>
+    <% } else if (slide.type === "video" && returnVP().includes("l")) { %>
+    <video onclick="toggleVideo()" data-video-size="large" loop playsinline autoplay muted disablepictureinpicture
+        disableremoteplayback data-src="<%= slide.asset.large.source %>" class="swiper-lazy video">
+    </video>
+    <% } %>
+    <% if (slide.card.text !== undefined) { %>
+    <div class="card <%= slide.card.position %>">
+        <% if (slide.card.subtitle !== undefined) { %>
+        <h2 class="subtitle"><%= slide.card.subtitle %></h2>
+        <% } %>
+        <% if (slide.card.title !== undefined) { %>
+        <h3 class="title"><%= slide.card.title %></h3>
+        <% } %>
+        <p class="text"><%= slide.card.text %></p>
+        <% if (slide.type === 'start' && returnVP().includes("l")) { %>
+        <lord-icon src="https://cdn.lordicon.com/foijefmd.json" trigger="loop" colors="primary:#0000,secondary:#c73f00"
+            style="width:120px;height:120px;margin-top:75px">
+        </lord-icon>
+        <lord-icon onclick="nextSlideRight(this)" src="https://cdn.lordicon.com/zpcieyfp.json" trigger="loop" colors="primary:#0000,secondary:#c73f00"
+            style="width:75px;height:75px;margin-top:35px;padding-right:150px;cursor: pointer;">
+        </lord-icon>
+        <% } %>
+        <% if (slide.type === 'start' && returnVP() === "s") { %>
+        <lord-icon src="https://cdn.lordicon.com/foijefmd.json" trigger="loop" colors="primary:#0000,secondary:#c73f00"
+            style="width:75px;height:75px;margin-top: 45px">
+        </lord-icon>
+        <lord-icon onclick="nextSlideRight(this)" src="https://cdn.lordicon.com/zpcieyfp.json" trigger="loop" colors="primary:#0000,secondary:#c73f00"
+            style="width:45px;height:45px;margin-top:25px;padding-right:150px">
+        </lord-icon>
+        <% } %>
+        <% if (slide.type === 'end' && returnVP().includes("l")) { %>
+        <lord-icon onclick="nextSlideDown(this)" src="https://cdn.lordicon.com/cfupmcdg.json" trigger="loop" colors="primary:#0000,secondary:#c73f00"
+            style="width:120px;height:120px;margin-top:75px;cursor: pointer;">
+        </lord-icon>
+        <% } %>
+        <% if (slide.type === 'end' && returnVP() === "s") { %>
+        <lord-icon src="https://cdn.lordicon.com/vzwibsbc.json" onclick="nextSlideDown(this)" trigger="loop" colors="primary:#0000,secondary:#c73f00"
+            style="width:75px;height:75px;margin-top:35px">
+        </lord-icon>
+        <% } %>
+    </div>
+    <% } %>
+    <div class="desktop-only-nav">
+        <div class="tap-to-prev">
+            <div class="swiper-button-prev"></div>
+        </div>
+        <div class="tap-to-next">
+            <div class="swiper-button-next"></div>
+        </div>
     </div>
 </div>

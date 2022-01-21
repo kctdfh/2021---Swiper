@@ -71,6 +71,12 @@
     line-height: 1.1;
 }
 
+.intro-slide-wrapper .card .title:last-child,
+.cover .card .title:last-child,
+.slide-containment .card .title:last-child {
+    margin-bottom: 0px;
+}
+
 .intro-slide-wrapper .card .subtitle,
 .cover .card .subtitle,
 .slide-containment .card .subtitle {
