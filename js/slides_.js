@@ -5,7 +5,7 @@ var cometSlides = [
     asset: {
       small: {
         source: "./img/comet-10.png",
-        position: "right 10vh",
+        position: "right 20vh",
         size: "130%",
       },
       large: {

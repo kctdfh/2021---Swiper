@@ -6,19 +6,20 @@ if (!screenfull.isEnabled) {
         .forEach(function (button) {
             button.style.display = "none";
         });
+    document.querySelector(".fullscreen-card").style.display = "none";
 }
 
 document
-    .querySelectorAll(".fullscreen-button")
-    .forEach(function (button) {
-        button.addEventListener("click", function () {
-            if (screenfull.isEnabled && screenfull.isFullscreen) {
-                screenfull.exit();
-            } else if (screenfull.isEnabled) {
-                screenfull.request();
-            }
-        });
+  .querySelectorAll(".fullscreen-button, .fullscreen-card")
+  .forEach(function (button) {
+    button.addEventListener("click", function () {
+      if (screenfull.isEnabled && screenfull.isFullscreen) {
+        screenfull.exit();
+      } else if (screenfull.isEnabled) {
+        screenfull.request();
+      }
     });
+  });
 
 /* ANCHOR Video interaction icons */
 

@@ -51,10 +51,6 @@
             ". dbclick-key dbclick-key . . y-key y-key . ."
             ". . . wheel-x-key wheel-x-key . . wheel-y-key wheel-y-key";
     }
-
-    .intro-slide-desktop .card {
-        background-color: red;
-    }
 }
 
 .intro-slide-wrapper .key:nth-child(2),
@@ -66,10 +62,24 @@
 .intro-slide-wrapper .key .icon {
     margin-top: auto;
     margin-bottom: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.intro-slide-wrapper .intro-slide-mobile .key .icon {
+    display: flex;
+    justify-content: center;
 }
 
 .intro-slide-wrapper .intro-slide-mobile .card {
-    gap: 0px !important;
+    /* padding-top: var(--spacing-sm-mobile);
+    padding-bottom: var(--spacing-sm-mobile); */
+    padding: calc(var(--spacing-sm-mobile)*1.5);
+    /* padding-right: 0px !important; */
+}
+
+.intro-slide-wrapper .intro-slide-mobile .card .text {
+    font-size: var(--text-xs-mobile) !important;
 }
 
 .intro-slide-wrapper .key {
@@ -78,30 +88,32 @@
     display: grid @(--ipadpro) flex @(--mobile) flex;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    gap: 25px;
-    grid-auto-flow: row;
-    flex-direction: row-reverse;
-    flex-flow: row;
-    justify-content: center @(--ipadpro) start @(--mobile) start;
-    align-content: center @(--ipadpro) start @(--mobile) start;
-    justify-items: stretch;
-    align-items: stretch;
+    gap: 15px;
+    grid-auto-flow: @(--mobile) row @(--ipadpro) column;
+    flex-direction: @(--mobile) row-reverse @(--ipadpro) column;
+    flex-flow: @(--mobile) row @(--ipadpro) column;
+    justify-content: center @(--ipadpro) center @(--mobile) center;
+    align-content: center @(--ipadpro) center @(--mobile) center;
+    justify-items: stretch @(--mobile) end;
+    align-items: stretch @(--mobile) center;
 }
 
 .intro-slide-wrapper .key .icon {
     height: 100%;
     width: 100%;
     /* background-color: red; */
-    align-self: self-end;
+    align-self: end;
     justify-self: center;
 }
 
 .intro-slide-wrapper .main-key {
+    border-top-style: solid @(--tablet-desktop) none !important;
+    border-left-style: solid @(--tablet-desktop) none !important;
     align-self: stretch;
     justify-self: stretch;
     grid-area: Main;
     position: static;
-    /* max-width: 100% !important; */
+        /* max-width: 100% !important; */
 }
 
 .intro-slide-wrapper .click-key {
@@ -114,6 +126,7 @@
 
 .intro-slide-wrapper .x-key {
     grid-area: x-key;
+    border-right-style: solid @(--tablet-desktop) none !important;
 }
 
 .intro-slide-wrapper .dbclick-key {
@@ -126,8 +139,11 @@
 
 .intro-slide-wrapper .wheel-x-key {
     grid-area: wheel-x-key;
+    border-bottom-style: solid @(--tablet-desktop) none !important;
 }
 
 .intro-slide-wrapper .wheel-y-key {
     grid-area: wheel-y-key;
+    border-right-style: solid @(--tablet-desktop) none !important;
+    border-bottom-style: solid @(--tablet-desktop) none !important;
 }

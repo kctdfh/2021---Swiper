@@ -68,6 +68,7 @@
     margin-bottom: @(--ultra) var(--spacing-sm-desktop) @(--tablet-desktop) var(--spacing-sm-desktop) @(--desktop) var(--spacing-sm-desktop) @(--mobile) var(--spacing-sm-mobile);
     font-size: @(--ultra) var(--text-lg-desktop) @(--tablet-desktop) var(--text-lg-desktop) @(--desktop) var(--text-lg-desktop) @(--mobile) var(--text-lg-mobile);
     font-weight: 600;
+    line-height: 1.1;
 }
 
 .intro-slide-wrapper .card .subtitle,
