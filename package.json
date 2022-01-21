@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "css": "postcss ./css/import.css -o ./css/swoosh.css"
+    "css": "postcss ./css/import.css -o ./css/swoosh.css",
+    "concatJS": "node-minify --compressor no-compressor --input ./js/import.js --output ./js/swoosh.js",
+    "js": "node-minify --compressor uglify-es --input js/makeSwiper_.js js/page.js js/radial.js js/slides.js --output js/$1.min.js"
   },
   "author": "",
   "license": "ISC",

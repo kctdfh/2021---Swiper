@@ -1,14 +1,14 @@
 <div class="swiper-slide slide-containment" data-hash="<%= slide.id %>" dynamic-slid-type="<%= slide.type %>">
-    <% if ((slide.type === undefined || slide.type === "image") && returnVP() === "s") { %>
+    <% if ((slide.type === undefined || slide.type === "image" || slide.type === "end" || slide.type === "start") && returnVP() === "s") { %>
     <div data-image-size="small" class="img-small swiper-lazy"
         style="background-image: url(<%= slide.asset.small.source %>); background-position:<%= slide.asset.small.position %>; background-size:<%= slide.asset.small.size %>">
     </div>
-    <% } else if (slide.type === "video" && returnVP() === "s") { %>
+    <% } else if ((slide.type === "video" || (slide.type === "end" || slide.type === "start")) && returnVP() === "s") { %>
     <video onclick="toggleVideo()" data-video-size="small" loop playsinline autoplay muted disablepictureinpicture
         disableremoteplayback data-src="<%= slide.asset.small.source %>" class="swiper-lazy video">
     </video>
     <% } %>
-    <% if ((slide.type === undefined || slide.type === "image") && returnVP() === "l-wide") { %>
+    <% if ((slide.type === undefined || slide.type === "image" || slide.type === "end" || slide.type === "start") && returnVP() === "l-wide") { %>
     <div data-image-size="large" class="img-large swiper-lazy"
         style="background-image: url(<%= slide.asset.large.source %>); background-position:<%= slide.asset.large.position %>; background-size:<%= slide.asset.large.size %>">
     </div>
@@ -16,7 +16,7 @@
     <div data-image-size="large" class="img-large swiper-lazy"
         style="background-image: url(<%= slide.asset.large.tall.source %>); background-position:<%= slide.asset.large.tall.position %>; background-size:<%= slide.asset.large.tall.size %>">
     </div>
-    <% } else if (slide.type === "video" && returnVP().includes("l")) { %>
+    <% } else if ((slide.type === "video" || (slide.type === "end" || slide.type === "start")) && returnVP().includes("l")) { %>
     <video onclick="toggleVideo()" data-video-size="large" loop playsinline autoplay muted disablepictureinpicture
         disableremoteplayback data-src="<%= slide.asset.large.source %>" class="swiper-lazy video">
     </video>
