@@ -15,11 +15,19 @@ document
     button.addEventListener("click", function () {
       if (screenfull.isEnabled && screenfull.isFullscreen) {
         screenfull.exit();
+        refreshSlider(this);
       } else if (screenfull.isEnabled) {
         screenfull.request();
+        refreshSlider(this);
       }
     });
   });
+
+var refreshSlider = function (button) {
+  var currentSlide = document.querySelector(".swiper-slide-active");
+  var currentSwiper = currentSlide.closest(".swiper");
+  currentSwiper.swiper.update();
+};
 
 /* ANCHOR Video interaction icons */
 
